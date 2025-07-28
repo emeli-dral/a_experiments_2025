@@ -1,2 +1,11 @@
 mlflow
 jupyter
+pandas
+scikit-learn
+numpy
+matplotlib
+plotly
+seaborn
+evidently
+xgboost
+optuna
