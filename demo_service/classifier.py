@@ -1,12 +1,31 @@
 import joblib
-from sklearn.datasets import fetch_20newsgroups
 
+target_names = ['alt.atheism',
+ 'comp.graphics',
+ 'comp.os.ms-windows.misc',
+ 'comp.sys.ibm.pc.hardware',
+ 'comp.sys.mac.hardware',
+ 'comp.windows.x',
+ 'misc.forsale',
+ 'rec.autos',
+ 'rec.motorcycles',
+ 'rec.sport.baseball',
+ 'rec.sport.hockey',
+ 'sci.crypt',
+ 'sci.electronics',
+ 'sci.med',
+ 'sci.space',
+ 'soc.religion.christian',
+ 'talk.politics.guns',
+ 'talk.politics.mideast',
+ 'talk.politics.misc',
+ 'talk.religion.misc']
 
 class Classifier(object):
     def __init__(self):
-        self.vectorizer = joblib.load("news_vectorizer_dump_tfidf.pkl")
-        self.model = joblib.load("news_model_dump_rf.pkl")
-        self.target_names = fetch_20newsgroups(subset = 'test').target_names
+        self.vectorizer = joblib.load("news_vectorizer_dump_tfidf.bin")
+        self.model = joblib.load("news_model_dump_rf.bin")
+        self.target_names = target_names
     
     def get_name_by_label(self, label: str) -> str:
         try:
